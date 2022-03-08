@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <ul id="app" class="center" >
+        <h1>Accordify</h1>
+       <div class="grid-container">
+        <select  v-model="selected" id="deptList">
+        <option >playlist-name</option>
+        <option>playlist-link</option>
+        </select>  
+        <input v-model="name" placeholder="Playlist Name" v-if="nameSelected()">
+        <input v-model="link" placeholder="Playlist Link" v-if="linkSelected()">
+            <button id="button" v-on:click="fetchAlbums()">Find Albums</button>
+        </div>
+
+        <div v-if="isLoading" class="loading"></div>
+
+        <table style="width:1000px; border-style: solid;" class="table" v-if="isLoaded">
+            <colgroup>
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 40%;">
+            <col span="1" style="width: 40%;">
+            </colgroup>
+
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">ALBUM</th>
+                    <th scope="col">ARTIST</th>
+                </tr>
+            </thead>
+             <tbody>
+                 
+                <tr v-for="album in albums">
+                    <td><img :src="album.cover"></td>
+                    <td><a :href="makeAccordUrl(album)">{{album.name}}</a></td>
+                    <td>{{album.artist}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </ul>
+
+    <script src="index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

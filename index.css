@@ -1,0 +1,33 @@
+button {
+  background-color:#ed672c
+}
+
+img{
+  width:100px;
+  height:100px
+}
+
+th{
+  background-color:#ed672c;
+  font-family: "Good Sans";
+}
+
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: 120px 120px 90px 120px;
+  padding-bottom: 20px;
+}
+.loading {
+  border: 16px solid #ed672c;
+  border-top: 16px solid #000000; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  align-content: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
