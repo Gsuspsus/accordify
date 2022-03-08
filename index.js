@@ -10,7 +10,7 @@ Vue.createApp({
             isLoaded: false,
             isLoading: false,
             accordBaseUrl:"https://accord.dk/products/",
-            apiBaseUrl:"https://gstok123-nmz1hmoz13k6zazg.socketxp.com/albums?"
+            apiBaseUrl:"https://gsus-accord.herokuapp.com/albums?"
         }
     },
     methods: {
